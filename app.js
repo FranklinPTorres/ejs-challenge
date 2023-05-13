@@ -19,7 +19,10 @@ let posts = [];
 
 
 app.get("/", function(req, res){
-res.render('home', {StartingContent: homeStartingContent},);
+res.render('home', {
+  StartingContent: homeStartingContent,
+  posts: posts
+    });
 });
 
 app.get("/about", function(req, res){
@@ -41,7 +44,7 @@ app.get("/about", function(req, res){
         content: req.body.postContent
       }
         posts.push(post);
-        
+
         res.redirect("/");
       });
       
